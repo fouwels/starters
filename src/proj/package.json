@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "name": "proj",
+  "private": true,
+  "dependencies": {
+    "merge-stream": "latest"
+  },
+  "main": "Gulpfile.js"
+}
