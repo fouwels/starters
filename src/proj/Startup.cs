@@ -43,6 +43,7 @@ namespace proj
 			   await next();
 		    });
 
+			app.UseStaticFiles();
 			app.UseErrorPage();
 			app.UseMvc();
 			
