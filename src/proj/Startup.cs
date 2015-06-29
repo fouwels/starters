@@ -19,30 +19,33 @@ namespace proj
 		{
 			var configuration = new Configuration()
 			  .AddJsonFile("config.json");
-			//configuration.AddUserSecrets(); broken package on dnu
+			//configuration.AddUserSecrets(); secrets-manager broken on nuget
 
 			Configuration = configuration;
 		}
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
 			services.AddMvc();
 			services.AddLogging();
 
-			Debug.WriteLine("Configured Services - config check value:" + Configuration["data:IntendedConfigCheckValue"]); // Indentify accidental config file mis-match
+			Debug.WriteLine("Configured Services - file check val:" + Configuration["data:IntendedConfigCheckValue"]); // indentify config mis match
         }
 
-        public void Configure(IApplicationBuilder app, ILoggerFactory LoggerFactory)
+        public void Configure(IApplicationBuilder app, ILoggerFactory LoggerFactory, ILogger<Startup> logger)
         {
 			LoggerFactory.AddConsole(LogLevel.Information);
 
+			app.Use(async (context, next) =>
+		    {
+			   var s = ("[Pipeline0] Request to:" + context.Request.Path);
+			   logger.LogInformation(s);
+			   Debug.WriteLine(s);
+			   await next();
+		    });
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
-			app.UseMvc();
 			app.UseErrorPage();
+			app.UseMvc();
+			
         }
     }
 }
