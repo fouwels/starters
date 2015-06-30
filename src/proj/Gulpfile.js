@@ -1,4 +1,5 @@
-﻿var gulp = require('gulp');
+﻿/// <binding BeforeBuild='clean' />
+var gulp = require('gulp');
 var merge = require('merge-stream');
 var rimraf = require("rimraf");
 var gutil = require('gulp-util');

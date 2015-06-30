@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Mvc;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
@@ -25,28 +26,36 @@ namespace proj
 		}
         public void ConfigureServices(IServiceCollection services)
         {
-			services.AddMvc();
+			services.AddMvc().Configure<MvcOptions>(options =>
+			{
+				options.ViewEngines.Add(Type.GetType("proj.ViewEngines.DefaultViewEngine"));
+			});
 			services.AddLogging();
 
 			Debug.WriteLine("Configured Services - file check val:" + Configuration["data:IntendedConfigCheckValue"]); // indentify config mis match
         }
 
-        public void Configure(IApplicationBuilder app, ILoggerFactory LoggerFactory, ILogger<Startup> logger)
-        {
+		public void Configure(IApplicationBuilder app, ILoggerFactory LoggerFactory, ILogger<Startup> logger)
+		{
 			LoggerFactory.AddConsole(LogLevel.Information);
 
 			app.Use(async (context, next) =>
-		    {
-			   var s = ("[Pipeline0] Request to:" + context.Request.Path);
-			   logger.LogInformation(s);
-			   Debug.WriteLine(s);
-			   await next();
-		    });
+			{
+				var s = ("[Pipeline0] Request to:" + context.Request.Path);
+				logger.LogInformation(s);
+				Debug.WriteLine(s);
+				await next();
+			});
 
 			app.UseStaticFiles();
 			app.UseErrorPage();
-			app.UseMvc();
-			
-        }
+			app.UseMvc(routes =>
+			{
+				routes.MapRoute(
+					name: "default",
+					template: "{controller}/{action}/{id?}",
+					defaults: new { controller = "Page", action = "Index" });
+			});
+		}
     }
 }

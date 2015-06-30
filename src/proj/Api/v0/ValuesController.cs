@@ -23,11 +23,11 @@ namespace proj.Api.v0
             return "value";
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
+		// POST api/values
+		[HttpPost]
+		public void Post([FromBody]string value)
+		{
+		}
 
         // PUT api/values/5
         [HttpPut("{id}")]
