@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='clean' />
+﻿/// <binding BeforeBuild='clean, build' />
 var gulp = require('gulp');
 var merge = require('merge-stream');
 var rimraf = require("rimraf");
@@ -29,10 +29,22 @@ gulp.task('clean', function (cb){
 	rimraf('./wwwroot/*', cb);
 });
 
-gulp.task('default', function () {
-	gutil.log('\n\n************************************');
-	gutil.log('Available actions:');
-	gutil.log('clean: clean serving dir');
-	gutil.log('swagger: copy swagger files from dist into serving dir.');
-	gutil.log('\n*************************************');
+gulp.task('styles', function () {
+	return gulp.src('./Front/Styles/*')
+		.pipe(gulp.dest('./wwwroot/css/'));
 });
+
+gulp.task('scripts', function () {
+	return gulp.src('./Front/Scripts/*')
+		.pipe(gulp.dest('./wwwroot/js/'));
+});
+
+gulp.task('build', ['clean', 'styles', 'scripts']);
+
+//gulp.task('default', function () {
+//	gutil.log('\n\n************************************');
+//	gutil.log('Available actions:');
+//	gutil.log('clean: clean serving dir');
+//	gutil.log('swagger: copy swagger files from dist into serving dir.');
+//	gutil.log('\n*************************************');
+//});
