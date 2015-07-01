@@ -18,6 +18,7 @@ namespace proj.ViewEngines
 			{
 				List<string> existing = base.ViewLocationFormats.ToList();
 				existing.Add("/Front/Views/{1}/{0}.cshtml");
+				existing.Add("/Front/Views/Shared/{0}.cshtml");
 				return existing;
 			}
 		}
