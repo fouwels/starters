@@ -32,7 +32,7 @@ namespace proj
 			});
 			services.AddLogging();
 
-			Debug.WriteLine("Configured Services - file check val:" + Configuration["data:IntendedConfigCheckValue"]); // indentify config mis match
+			Debug.WriteLine("Configured Services - " + Configuration["data:ConfigSanityCheck"]); // indentify config mis match
         }
 
 		public void Configure(IApplicationBuilder app, ILoggerFactory LoggerFactory, ILogger<Startup> logger)

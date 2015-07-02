@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='clean, build' />
+/// <binding BeforeBuild='build' />
 var gulp = require('gulp');
 var merge = require('merge-stream');
 var rimraf = require("rimraf");
@@ -39,7 +39,13 @@ gulp.task('scripts', function () {
 		.pipe(gulp.dest('./wwwroot/js/'));
 });
 
-gulp.task('build', ['clean', 'styles', 'scripts']);
+gulp.task('bootstrap', function(){
+	return gulp.src('./bower_components/bootstrap/dist/**/*')
+		.pipe(gulp.dest('./wwwroot/'));
+	});
+
+
+gulp.task('build', ['clean', 'styles', 'scripts', 'bootstrap']);
 
 //gulp.task('default', function () {
 //	gutil.log('\n\n************************************');

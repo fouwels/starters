@@ -3,7 +3,8 @@
   "name": "proj",
   "private": true,
   "dependencies": {
-    "merge-stream": "latest"
+	"merge-stream": "latest",
+	"bower" : "latest"
   },
   "main": "Gulpfile.js"
 }
