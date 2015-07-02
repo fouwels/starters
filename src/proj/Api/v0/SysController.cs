@@ -7,7 +7,7 @@ using Microsoft.AspNet.Mvc;
 namespace proj.Api.v0
 {
     [Route("api/v0/[controller]/[action]")]
-    public class SystemController : Controller
+    public class SysController : Controller
     {
 		[HttpGet]
 		public object GetTime()
