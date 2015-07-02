@@ -191,5 +191,5 @@ ModelManifest.xml
 # ignore wwwroot as we are gulping into it
 wwwroot/
 
- node_modules/
- bower_components/
+node_modules/
+bower_components/
