@@ -42,15 +42,11 @@ gulp.task('scripts', function () {
 gulp.task('bootstrap', function(){
 	return gulp.src('./bower_components/bootstrap/dist/**/*')
 		.pipe(gulp.dest('./wwwroot/'));
-	});
+});
+gulp.task('jquery', function () {
+	return gulp.src('./bower_components/jquery/dist/**/*')
+		.pipe(gulp.dest('./wwwroot/js/'));
+});
 
 
-gulp.task('build', ['clean', 'styles', 'scripts', 'bootstrap']);
-
-//gulp.task('default', function () {
-//	gutil.log('\n\n************************************');
-//	gutil.log('Available actions:');
-//	gutil.log('clean: clean serving dir');
-//	gutil.log('swagger: copy swagger files from dist into serving dir.');
-//	gutil.log('\n*************************************');
-//});
+gulp.task('build', ['clean', 'styles', 'scripts', 'bootstrap', 'jquery']);
