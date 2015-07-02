@@ -21,17 +21,17 @@ gulp.task('jquery', function () {
 });
 
 gulp.task('styles', function () {
-	return gulp.src('./working/css/*')
+	return gulp.src('./staging/css/*')
 		.pipe(gulp.dest('./wwwroot/css/'));
 });
 
 gulp.task('scripts', function () {
-	return gulp.src('./working/js/*')
+	return gulp.src('./staging/js/*')
 		.pipe(gulp.dest('./wwwroot/js/'));
 });
 
 gulp.task('pages', function () {
-	return gulp.src('./working/*')
+	return gulp.src('./staging/*')
 		.pipe(gulp.dest('./wwwroot/'));
 });
 
