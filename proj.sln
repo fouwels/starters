@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{00C04483-7851-428C-86C6-C5F066F6CE78}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vnext-webapi", "vnext-webapi", "{00C04483-7851-428C-86C6-C5F066F6CE78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D14F0246-96DE-4A26-B501-50088DBA57BA}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "proj", "src\proj\proj.xproj", "{6496BC13-EFA1-426D-A70D-EA29549F3863}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "proj", "vnext-webapi\proj\proj.xproj", "{6496BC13-EFA1-426D-A70D-EA29549F3863}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
