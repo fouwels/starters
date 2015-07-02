@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using Newtonsoft.Json;
 
 namespace proj.Api.v0
 {
@@ -14,5 +15,10 @@ namespace proj.Api.v0
 		{
 			return new Dictionary<string, string> { { "time", DateTime.Now.ToString() } };
 		}
-    }
+
+		public string Headers()
+		{
+			return JsonConvert.SerializeObject(Request.Headers , Formatting.Indented);
+		}
+	}
 }
