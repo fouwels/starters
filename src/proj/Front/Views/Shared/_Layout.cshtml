@@ -3,14 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+	<link rel="Stylesheet" href="~/css/bootstrap.css" type="text/css" />
 	<link rel="Stylesheet" href="~/css/Core.css" type="text/css" />
 	@RenderSection("Styles")
-	@Styles.Render("~/Content/bootstrap/bootstrap.css")
+	
 </head>
-<body>
-	<div id="header">
-		<h1>From _layout</h1>
-		<hr />
+<body class="panel-body, container-fluid">
+	<div class="row">
+		<div class="col-md-12" id="header">
+			<h1>From _layout</h1>
+		</div>
 	</div>
 	@RenderBody()
 </body>
