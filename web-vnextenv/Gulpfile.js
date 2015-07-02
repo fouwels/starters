@@ -35,4 +35,5 @@ gulp.task('pages', function () {
 		.pipe(gulp.dest('./wwwroot/'));
 });
 
+
 gulp.task('build', ['clean', 'bootstrap', 'jquery', 'styles', 'scripts', 'pages']);
