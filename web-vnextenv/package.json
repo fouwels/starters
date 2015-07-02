@@ -1,0 +1,9 @@
+{
+	"version": "1.0.0",
+	"name": "WebApplication1",
+	"private": true,
+	"devDependencies": {
+		"bower": "latest",
+		"rimraf" : "latest"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"name": "WebApplication1",
+	"private": true,
+	"dependencies": {
+		"bootstrap": "3.3.5"
+	}
+}
