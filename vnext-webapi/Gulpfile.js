@@ -8,19 +8,13 @@ var gulpIgnore = require('gulp-ignore');
 gulp.task('swagger', function () {
 
 	var swagger =
-		gulp.src('./Swagger/Dist/**/*')
-		.pipe(gulpIgnore.exclude('./Swagger/Dist/index.html'))
+		gulp.src('./bower_components/swagger-ui/Dist/**/*')
+		//.pipe(gulpIgnore.exclude('./bower_components/swagger-ui/Dist/index.html'))
 		.pipe(gulp.dest('./wwwroot/'));
 
 	var swagfile =
 		gulp.src('swagger.json')
 		.pipe(gulp.dest('./wwwroot/'));
-
-
-	//var swaggerIndex = 
-	//	gulp.src('./Swagger/Dist/index.html')
-	//	.pipe(rename('documentation.html'))
-	//	.pipe(gulp.dest('/wwwroot/'));
 
 	return merge(swagger, swagfile);
 });
