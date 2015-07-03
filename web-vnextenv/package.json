@@ -4,6 +4,6 @@
 	"private": true,
 	"devDependencies": {
 		"bower": "latest",
-		"rimraf" : "latest"
+		"rimraf": "latest"
 	}
 }

@@ -42,5 +42,10 @@ gulp.task('jquery', function () {
 		.pipe(gulp.dest('./wwwroot/js/'));
 });
 
+gulp.task('watch', function () {
+	gulp.watch('./Front/css/*', ['styles']);
+	gulp.watch('./Front/js/*', ['scripts']);
+});
+
 
 gulp.task('build', ['clean', 'styles', 'scripts', 'bootstrap', 'jquery']);

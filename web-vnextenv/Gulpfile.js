@@ -35,5 +35,11 @@ gulp.task('pages', function () {
 		.pipe(gulp.dest('./wwwroot/'));
 });
 
+gulp.task('watch', function () {
+	gulp.watch('./staging/css/*', ['styles']);
+	gulp.watch('./staging/js/*', ['scripts']);
+	gulp.watch('./staging/*', ['pages']);
+});
+
 
 gulp.task('build', ['clean', 'bootstrap', 'jquery', 'styles', 'scripts', 'pages']);
