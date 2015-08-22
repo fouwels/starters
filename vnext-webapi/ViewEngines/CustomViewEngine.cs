@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc.Razor;
-using Microsoft.AspNet.Mvc.Razor.OptionDescriptors;
+using Microsoft.Framework.OptionsModel;
 
 namespace proj.ViewEngines
 {
 	public class DefaultViewEngine : RazorViewEngine
 	{
-		public DefaultViewEngine(IRazorPageFactory pageFactory, IRazorViewFactory viewFactory, IViewLocationExpanderProvider viewLocationExpanderProvider, IViewLocationCache viewLocationCache) : base(pageFactory, viewFactory, viewLocationExpanderProvider, viewLocationCache)
+		public DefaultViewEngine(IRazorPageFactory pageFactory, IRazorViewFactory viewFactory, IOptions<RazorViewEngineOptions> optionsAccessor, IViewLocationCache viewLocationCache) : base(pageFactory, viewFactory, optionsAccessor, viewLocationCache)
 		{
 		}
 		public override IEnumerable<string> ViewLocationFormats
