@@ -15,7 +15,8 @@
 	},
 
 	"commands": {
-		"web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000"
+		"web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://+:5000"
+		// remember to: netsh http add urlacl url=http://+:5000/ user=host\user
 	},
 
 	"frameworks": {
