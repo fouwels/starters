@@ -5,125 +5,16 @@
 	<link rel="stylesheet" href="./css/font-awesome.css" />
 	<link rel="stylesheet" href="./css/core.css" />
 	<meta charset="utf-8" />
-	<title>Kaelan Fouwels</title>
+	<title>title</title>
 </head>
 <body>
 	<div class="root">
 		<div class="container-fluid root2">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h1>Kaelan Fouwels</h1>
-				</div>
-			</div>
-			<div class="row">
-				<div class="text-center">
-					Holding page
-				</div>
-			</div>
-			<div class="row">
-				<div class="text-center">
-					<div class="linkContainer">
-						<div class="linkContainerContents">
-							<span class="text-center"><span class="fa fa-twitter" /></span>
-							<a href="https://www.twitter.com/kfwls" class="text-center">Twitter</a>
-						</div>
-					</div>
-					<div class="linkContainer">
-						<div class="linkContainerContents">
-							<span class="text-center"><span class="fa fa-github" /></span>
-							<a href="https://www.github.com/kfwls" class="text-center">Github</a>
-						</div>
-					</div>
-					<div class="linkContainer" onclick="togglePGPDialog(true)">
-						<div class="linkContainerContents">
-							<span class="text-center"><span class="fa fa-key" /></span>
-							<a class="text-center" onclick="">PGP</a>
-						</div>
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</div>
-	<!--<div class="root" id="pgpRootDialog" style="display:none">-->
-	<div class="root" id="pgpRootDialog" style="opacity:0;display:none">
-		<div class="pgpDialog">
-			<div class="panel panel-default ">
-				<div class="panel-heading">
-					<span class="panel-title" id="PGPheading">PGP</span>
-					<div id="PGPdialogClose" onclick="togglePGPDialog(false)">
-						<span id="PGPdialogCloseContents" class="fa fa-close"></span>
-					</div>
 
-				</div>
-				<div class="panel-body">
-					<iframe id="PGPframe" src="./pgp.txt" width="100%" height="200px"></iframe>
-					<div class="row" style="margin-bottom:5px">
-						<div class="col-md-2">Validate at</div>
-						<div class="col-md-3"><a href="https://keybase.io/kae">Keybase.io/kae</a></div>
-					</div>
-					<div class="row">
-						<div class="col-md-2">Mail to:</div>
-						<div class="col-md-4"><a href="mailto:kae@kfwls.co">kae@kfwls.co</a> (primary)</div>
-					</div>
-					<div class="row" style="margin-bottom:5px">
-						<div class="col-md-3 col-md-offset-2"><a href="mailto:kae@kfwls.co">kfouwels@outlook.com</a></div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-2">Huh?</div>
-						<div class="col-md-4"><a href="http://www.heureka.clara.net/sunrise/pgpwhat.htm">What is PGP?</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer">
-			<p>
-				Source <a href="http://www.github.com/kfwls/w.kfwls.co">on github</a>
-			</p>
-	</div>
 	<script>
-		//function togglePGPDialog(show) {
-		//	var e = document.getElementById("pgpRootDialog");
-		//	if (show === true) {
-		//		e.style.display = 'block';
-		//	}
-		//	else
-		//		e.style.display = 'none';
-		//}
-
-		var element = document.getElementById("pgpRootDialog");
-		var duration = 250;
-
-		function SetOpa(o) {
-			element.style.opacity = o;
-		}
-
-		function FadeOut() {
-			setTimeout("element.style.display = 'none'", duration);
-			for (i = 0; i <= 1; i += 0.01) {
-				setTimeout("SetOpa(" + (1 - i) +")", i * duration);
-			}
-		}
-		function FadeIn() {
-			element.style.display = 'block';
-			for (i = 0; i <= 1; i += 0.01) {
-				setTimeout("SetOpa(" + i +")", i * duration);
-			}
-		}
-		function togglePGPDialog(show) {
-			if (show) {
-				FadeIn();
-			}
-			else {
-				FadeOut();
-			}
-		}
-		function keyhandler(e) {
-			if (e.keyCode == 27)
-				FadeOut();
-		}
-		document.onkeydown = keyhandler;
 	</script>
 </body>
 </html>
