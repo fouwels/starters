@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var rimraf = require("rimraf");
 var newer = require('gulp-newer');
+var uglify = require('gulp-uglify');
 
 var rootOutputDir = './wwwroot';
 
@@ -17,6 +18,7 @@ gulp.task('bootstrap', function () {
 gulp.task('jquery', function () {
 	return gulp.src('./bower_components/jquery/dist/**/*')
 		.pipe(newer(rootOutputDir + '/js/'))
+		.pipe(uglify())
 		.pipe(gulp.dest(rootOutputDir + '/js/'));
 });
 
@@ -29,24 +31,20 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
 	return gulp.src('./dev/js/*')
 		.pipe(newer(rootOutputDir + '/js/'))
+		.pipe(uglify())
 		.pipe(gulp.dest(rootOutputDir + '/js/'));
 });
 
 gulp.task('pages', function () {
-	return gulp.src('./dev/*')
+	return gulp.src('./dev/html/*')
 		.pipe(newer(rootOutputDir + '/'))
 		.pipe(gulp.dest(rootOutputDir + '/'));
 });
 
-gulp.task('fonta-css', function () {
-	return gulp.src('./bower_components/font-awesome/css/*')
-		.pipe(newer(rootOutputDir + '/css/'))
-		.pipe(gulp.dest(rootOutputDir + '/css/'));
-});
-gulp.task('fonta-fonts', function () {
-	return gulp.src('./bower_components/font-awesome/fonts/*')
-		.pipe(newer(rootOutputDir + '/fonts/'))
-		.pipe(gulp.dest(rootOutputDir + '/fonts/'));
+gulp.task('fonta', function () {
+	return gulp.src('./bower_components/font-awesome/*')
+		.pipe(newer(rootOutputDir + '/'))
+		.pipe(gulp.dest(rootOutputDir + '/'));
 });
 
 
@@ -57,4 +55,4 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('build', ['bootstrap', 'jquery', 'styles', 'scripts', 'pages', 'fonta-css', 'fonta-fonts']);
+gulp.task('build', ['bootstrap', 'jquery', 'styles', 'scripts', 'pages', 'fonta']);
