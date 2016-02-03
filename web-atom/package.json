@@ -1,13 +1,16 @@
 {
-	"version": "1.0.0",
-	"name": "WebApplication1",
-	"private": true,
-	"devDependencies": {
-		"bower": "latest",
-		"rimraf": "latest",
-		"gulp": "latest"
-	},
-	"scripts": {
+  "version": "1.0.0",
+  "name": "WebApplication1",
+  "private": true,
+  "devDependencies": {
+    "bower": "latest",
+    "rimraf": "latest",
+    "gulp": "latest"
+  },
+  "scripts": {
     "postinstall": "bower install; gulp build"
+  },
+  "dependencies": {
+    "require-dir": "^0.3.0"
   }
 }
